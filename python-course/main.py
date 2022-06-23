@@ -102,5 +102,123 @@ print(x) # il risultato sarà "Ciao sono "bello" "
 
 
 # Boolean
-
 #In Python si utilizza True e False (non in minuscolo come C# o typescript)
+
+x = True
+x = False
+
+#Operatori Artimetici in Python
+
+#Gli operatori artimetci sono  +, - , * , % , ** (potenza) e // 
+#Inoltre esistono i metodi min(), max(), abs() e pow() come da esempio sotto.
+
+print(min(1,2,3,9)) # <- ritorna 1
+print(max(1,2,3,9)) # <- ritorna 9
+print(abs(-9.9)) # <- ritorna 9.
+print(pow(10,2))# <- 10 alla seconda.
+
+
+#Condizioni If Else e ElIf (else if)
+
+x = 11
+y = 10
+z = 5
+if x < y:
+    print("[IF] {} è minore di {}".format(x,y))
+elif x > z:
+    print("[ELFIF] {} è minore di {}".format(x,z))
+else:
+    print("[ELSE] {} non è minore di {}".format(x,y))
+
+
+# Invece di usare and e or si fa cosi
+if 10 <= x <= 20:
+    print("[IF] {0} è compreso".format(x))
+else:
+    print("[ELSE]: {0} non è compreso".format(x))
+
+#Utilizzando and e or
+if x >= 10 and x <= 20:
+      print("[IF con AND] {0} è compreso".format(x))
+else:
+    print("[ELSE con AND]: {0} non è compreso".format(x))
+
+
+
+#Ciclo While -> normale come tutti gli altri while.
+x = 40
+while x < 50:
+    print(x)
+    x = x+1
+
+
+#Ciclo For
+
+for city in cities:
+    print(city)
+
+x = range(6)
+for num in x:
+    print(num)
+
+
+#12 Introduzione teorica a collezioni di dati
+#-indicizzato: accedere agli elementi tramite indice (index)
+#-modificabile: possiamo aggiungere, cambiare e rimuovere elementi una volta creata la collezione
+#-immutabile; non possiamo aggiungere, cambiare e rimuovere elementi
+#-permette duplicati: possono esserci più elementi con lo stesso valore
+#Le liste sono col lezioni ordinate e modificabili. Permettono duplicati
+#Le tuple sono collezioni ordinate ma immutabili. Per•mettono duplicati
+#set sono collezioni non ordinate e perciò non indicizzate. Non permettono duplicati
+#I dictionary sono collezioni ordinate• e —Mificabili (dalla versione 3.7). Non permettono duplicati
+
+
+#14 tuple non modificabili e permettono duplicati
+#modificare e inserire elementi: non possibile se non con escaetage
+#Rimuovere elementi con escanotage oppure cancellare tutto con del()
+#Spacchettare una tupia (unpack) normale e con *
+#unire tuple con +
+#Metodi count() e index()
+
+
+#set
+#- Collezioni di dati non ordinate, non indicizzate,
+#- Creare una tupla, normale e mischiata
+#- Vediamo len(), type() e set()
+#- Accedere agli elementi con loop
+#- non modificabili e non permettono duplicati
+# Modificare elementi non possibile, possiamo solo aggiungere e rimuovere
+# Aggiungere elementi add(), update()
+# Rimuovere elementi con remove(), discard(), pop(), clear(), del
+# Unire con union() e update(). intersection().
+
+
+
+# FUNZIONI
+# PAROLA CHIAVE DEF
+
+print("Funzioni")
+
+def Somma(a,b):
+    return a+b
+
+def SommaArgs(*args): # *agrs significa quanti parametr vogliamo.
+    res = 0
+    for item in args:
+        res += item
+    return res
+
+def Summa(val1, val2):
+    return val1+val2
+
+def SommaDefaultParam(a = 1, b =2):
+    return a+b
+
+
+print(Somma(4,5))
+
+print(SommaArgs(1,2,3,4,5,6,7))
+
+print(Summa(val2=1, val1=4))
+
+print(SommaDefaultParam())
