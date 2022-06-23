@@ -1,0 +1,32 @@
+button {
+    color: white;
+}
+
+.daycolor
+{
+    background-color: #99738E!important;
+    COLOR:white
+}
+
+.weekcolor
+{
+    background-color: #F64C72!important;
+    font-family: Arial, Helvetica, sans-serif;
+    COLOR:white
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+   
+
+    background: red;
+    border: 2px solid #666;
+    color: black;
+    text-align: center;
+    font-size: 10px;
+    text-align: center;
+    font:  Arial, sans-serif;
+}
+

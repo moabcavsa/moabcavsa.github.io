@@ -1,0 +1,22 @@
+<!-- to rapalce with off canvas-->
+<nav ngbNav #nav="ngbNav" class="nav-tabs  navbar-dark bg-dark">
+    <ng-container ngbNavItem>
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary " id="dropdownBasic1" ngbDropdownToggle>Pagine</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem [routerLink]="['showUser']">Leggi Utenti</button>
+          <button ngbDropdownItem  [routerLink]="['calendarUser']">Calendario</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
+    </ng-container>
+    <!-- <ng-container ngbNavItem>
+      <a ngbNavLink>Two</a>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Three</a>
+    </ng-container> -->
+  </nav>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  

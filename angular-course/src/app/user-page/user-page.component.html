@@ -1,0 +1,27 @@
+<div class="container aside" >
+  
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Username</th>
+    <th scope="col">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of userList">
+    <th scope="row">{{ user.Username }}</th>
+    <td>{{ user.EmailAddress}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="LoadUser()">
+  </ngb-pagination>
+
+  <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="LoadUser()">
+    <option [ngValue]="2">2 items per page</option>
+    <option [ngValue]="4">4 items per page</option>
+    <option [ngValue]="6">6 items per page</option>
+  </select>
+</div>

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Danieli_flag.jpg"
+        alt=""
+        width="50"
+        height="25"
+      />
+    </a>
+    <p class="title mx-auto">Benvenuto {{ UserAcc?.Username }}</p>
+    <app-account (LoggedUser)="GenerateUser($event)"></app-account>
+  </div>
+</nav>
+<app-sidebar></app-sidebar>
+

@@ -1,0 +1,57 @@
+<div class="row">
+  <hr />
+
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <button
+        class="btn btn-primary border border-1"
+        *ngFor="let month of Months"
+        [ngClass]="ButtonClassMonth(month)"
+        (click)="SelectedValue(month)"
+      >
+        {{ month }}
+      </button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="card col-sm-2  bg-transparent text-center weekcolor fw-bold">LUNEDI</div>
+    <div class="card col-sm-2  bg-transparent text-center weekcolor fw-bold">MARTEDI</div>
+    <div class="card col-sm-2  bg-transparent text-center weekcolor fw-bold">MERCOLEDI</div>
+    <div class="card col-sm-2  bg-transparent text-center weekcolor fw-bold">GIOVEDI</div>
+    <div class="card col-sm-2  bg-transparent text-center weekcolor fw-bold">VENERDI</div>
+    <div class="card col-sm-1  bg-transparent text-center weekcolor fw-bold">SABATO</div>
+    <div class="card col-md-1  bg-transparent text-center weekcolor fw-bold">DOMENICA</div>
+    <div class="w-100"></div>
+  </div>
+  <div class="row mt-3">
+    <ng-container *ngFor="let day of Items; index as i">
+      <div
+        class="card border border-dark rounded shadow p-3 mb-5 bg-info border-2 daycolor"
+        [ngClass]="SetLargeCardCouse(day.Date,i)"
+      >
+        <div class="row">
+          <div class="d-flex justify-content-center">
+            <i class="bi bi-trash3" placement="top" ngbTooltip="Elimina" (click)="ShowTask(day.Date,1)"> </i>
+            <i class="bi bi-info-circle" placement="top" ngbTooltip="Info" (click)="ShowTask(day.Date,0)"> </i>
+            <i
+              class="bi bi-plus-circle"
+              placement="top"
+              ngbTooltip="Aggiungi"
+              (click)="AddTask(day.Date)"
+            ></i>
+          </div>
+          <div class="d-flex justify-content-center">
+            {{ day.Date.getDate() }} {{ Months[day.Date.getMonth()] }}
+            {{ day.Date.getFullYear() }}
+          </div>
+          <div class="d-flex justify-content-center" *ngIf="day.Count >= 1">
+            <i class="bi bi-bell">C'è una task immessa</i>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+

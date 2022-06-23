@@ -1,0 +1,10 @@
+.CourseCard {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  text-align: center;
+
+}
+
+.beginner {
+  background-color: salmon;
+}

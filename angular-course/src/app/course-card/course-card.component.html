@@ -1,0 +1,35 @@
+<div #el> ciaooo {{popupResult}}</div>
+<div
+ 
+  *ngIf="IsCardVisible(); else CardNotVisible"
+  [ngClass]="CardNgClass()"
+  [ngStyle]="CardStyles()"
+>
+  <p>{{ CardIndex + ")" + Course.description }}</p>
+  <img [src]="Course.iconUrl"  />
+  <p>{{ Course.longDescription }}</p>
+  <div [ngSwitch]="Course.category">
+    <p *ngSwitchCase="'BEGINNER'">poppanti</p>
+    <p *ngSwitchCase="'INTERMEDIATE'">scemi</p>
+    <p *ngSwitchCase="'ADVANCED'">104</p>
+    <p *ngSwitchDefault>Inps</p>
+  </div>
+  <br />
+  <button (click)=" OpenPopup(popuptemplate)" >View Course</button>
+</div>
+
+<!-- this is the else of ngIf-->
+<ng-template #CardNotVisible>
+  <p>Cannot display card, the length is less then 100</p>
+  <alert-template [alertType]="'danger'" [datasource]="'Cannot display card, the length is less then 100'"></alert-template>
+</ng-template>
+
+
+<ng-template #popuptemplate let-modal>
+  <popup-template [datasource]="Course.description"
+                  [modal]="modal"
+                  >
+  </popup-template>
+
+
+</ng-template>
