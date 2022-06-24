@@ -100,7 +100,7 @@ print(arrView.base) # ci da l'array perchè non è proprietario(view)
 #In NumyPy shape ci dice la forma del nostro array.
 #Invece il Reshape ci fa cambiare forma al nostro array da 1d-2d da 1d-3d oppure a 0d.
 # Se l'array ha dimensioni sconosciute possiamo utilizzare -1 per definire che lo deve calcolare lui dato altri numeri.
-# flattening (spianare l'array) -> da array nD ad un array 0d.
+# flattening (spianare l'array) -> da array nD ad un array 1d.
 
 arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
 
@@ -115,3 +115,23 @@ print(arr.reshape(3,2,2))
 print("==============FLAT ARRAY==============")
 print(arr3d.flatten())
 
+
+print("========================Iterare===========================")
+#Iterare gli array di NumPy
+
+arr = np.array([[[1,2,3,4,5,6,7,8,9,10], [11,12,13,14,15,16,17,18,19,20]] ,
+                [[21,22,23,24,25,26,27,28,29,30], [31,32,33,34,35,36,37,38,39,40]]
+               ])
+print(arr.shape)
+
+#iterare array
+for x in np.nditer(arr,flags=['buffered'], op_dtypes=['S']): #significa che buffered userà l'array in uso (NON LO MODIFICA) e modificherà l'output in stringa.
+    print(x)
+
+print("========================Iterare con steps===========================")
+
+for x in np.nditer(arr[:,::2]): #significa che buffered userà l'array in uso (NON LO MODIFICA) e modificherà l'output in stringa.
+    print(x)
+
+for index, x in np.ndenumerate(arr): #significa prendere index + valore
+    print(index,x)
