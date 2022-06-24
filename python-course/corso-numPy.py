@@ -1,5 +1,7 @@
 import numpy as np
 
+
+# gli array dimensionali devono avere la stessa dimensione [1,2,3] [4,5,6] ! ERRORE: [1,2,3,4] [5,6,7]
 arr = np.array([1,2,3,4,5]) #1d array
 # print(arr*5) # ogni valore all'interno della lista è moltplicato per 5.
 
@@ -47,5 +49,10 @@ print(arr3d[1,1,0]) #10
 
 print("prendendoli al contrario")
 
-print(arr3d[-1, -1, -3]) # 10
+print(arr3d[-1, -1, -3]) #10
 print(arr3d[0, -2, -2]) #2
+
+
+# slice array numpy
+
+print(arr3d[0,0, 1:]) # prende i valori [2,3] dell array 0 in riga 0. 
