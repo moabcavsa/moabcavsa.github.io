@@ -34,3 +34,6 @@ def CreatePersona():
     Cognome = input("Inserisci Cognome")
     p = Persona(Nome,Cognome)
     return p
+
+def hihi():
+    print("hihi")

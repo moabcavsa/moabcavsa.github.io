@@ -265,7 +265,6 @@ print(pippo)
 
 # Modules
 
-from pickle import TRUE
 
 import math
 import datetime as dt
