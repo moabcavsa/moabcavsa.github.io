@@ -324,8 +324,7 @@ while(True):
         canUserModify = supp.CheckIfExists(p, listPerson)
         if(canUserModify >= 0):
             listPerson.pop(canUserModify)
-        if(canUserModify > 0):
-            listPerson.remove(canUserModify)
+       
     elif(valUserInput == 3):
         supp.printItems(listPerson)
     elif(valUserInput == 4):
