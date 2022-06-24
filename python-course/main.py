@@ -222,3 +222,117 @@ print(SommaArgs(1,2,3,4,5,6,7))
 print(Summa(val2=1, val1=4))
 
 print(SommaDefaultParam())
+
+
+import supportModule as supp #importo tutto 
+# Classi e Oggetti
+# il costruttore si dichiara con __int__(self, parametri)
+# ogni metodo nella classe deve passarsi self per avere i dati dell'oggetto
+# se creo un nuovo metodo non devo passargli self se lo richiamo all'esterno della classe. Es:  persona.Saluta() -> ma la definizione di Saluta è def Saluta(self)
+
+
+persona =supp.Persona("papa", "bergoglio")
+
+print(persona.nome + " " + persona.cognome)
+persona.Saluta()
+
+
+class Sviluppatore(supp.Persona): #(Persona) significa che estende una classe.
+    def __init__(self,nome,cognome, architettura):
+        super().__init__(nome,cognome)
+        self.architettura = architettura
+    def Saluta(self):
+        print("override del metodo saluta!")
+
+
+dev = Sviluppatore("pippo", "franco", "java")
+print(dev.nome + " " + dev.cognome + " " + dev.architettura)
+dev.Saluta()
+
+
+# Scope -> da vedere come pippo chiamato esternamente e poi usato global Pippo per richiamarlo è possibile modificarlo.
+
+pippo = "pippo"
+
+def egScope():
+    global pippo
+    pippo = "pluto"
+
+egScope()
+print(pippo)
+
+
+
+# Modules
+
+from pickle import TRUE
+
+import math
+import datetime as dt
+
+
+supp.Saluta()
+
+print(math.floor(100.44))
+print(math.pi)
+
+
+# per formattare una data come si vuole si utilizza  _date.strftime( placeholders per formattare)
+_date = dt.datetime.now().day
+print(_date)
+
+
+# PIP
+# In python per installare i pacchetti si usa pip (Nuget package in c#)
+
+
+# try e except
+
+try:
+    print("a" + 5) # errore non si può concatenare così stringa e int
+except:
+    print("Something went wront")
+
+
+listPerson = list()
+print("================USER APPLICATION =====================")
+tup = ("Aggiungi [0], Modifica[1], Elimina[2], Stampa Lista [3], Esci[4]")
+while(True):
+ 
+    print("Cosa vuoi fare? " + str(tup))
+    userInput = input()
+    try:
+        valUserInput = int(userInput)
+        print(valUserInput)
+        print(type(valUserInput))
+    except:
+        print("Valore non valido, quitting.")
+
+
+    if(valUserInput == 0):
+        p = supp.CreatePersona()
+        listPerson.append(p)
+    elif(valUserInput == 1):
+        p = supp.CreatePersona()
+        canUserModify = supp.CheckIfExists(p, listPerson)
+        print(canUserModify)
+        if(canUserModify >= 0):
+            p = supp.CreatePersona()
+            listPerson[canUserModify].nome = p.nome
+            listPerson[canUserModify].cognome = p.cognome
+    elif(valUserInput == 2):
+        p = supp.CreatePersona()
+        canUserModify = supp.CheckIfExists(p, listPerson)
+        if(canUserModify >= 0):
+            listPerson.pop(canUserModify)
+        if(canUserModify > 0):
+            listPerson.remove(canUserModify)
+    elif(valUserInput == 3):
+        supp.printItems(listPerson)
+    elif(valUserInput == 4):
+        break
+    else:
+        break
+
+
+        
