@@ -1,3 +1,4 @@
+from this import s
 import numpy as np
 
 
@@ -56,3 +57,61 @@ print(arr3d[0, -2, -2]) #2
 # slice array numpy
 
 print(arr3d[0,0, 1:]) # prende i valori [2,3] dell array 0 in riga 0. 
+
+
+# Tipi Dati di NumPy.
+# In NumPy ci sono oltre a quelly di Python altri tipi di variabili (guarda doc. NumPy)
+# In NumPy per sapere di che tipo è l'array basta utilizzare .dtype.
+# Si può castare un array con  il metodo asType(int)
+
+arr = np.array(["1", "2", "3"], dtype='S')
+arr = arr.astype(int)
+print(arr)
+ 
+# View e Copy di NumPy
+
+#View -> serve per dare ad una variabile l'indirizzo di memoria dell'array 'visto'. Se si modifica l'array 'visto' anche l'array che abbiamo ricevuto dalla view cambierà.
+#Copy -> crea una copia in un altra allocazione di memoria dell'array.
+
+
+arrView = arr.view()
+arrCopy = arr.copy()
+
+arr[0] = 9
+print(arr) # ritorna 9,2,3
+print(arrView) # ritorna 9,2,3
+print(arrCopy) # ritorna 1,2,3
+
+arrView[0] = 11 
+
+print(arr)
+print(arrView)
+# stamperanno lo stesso valore dato che arrView ha solo l'allocazione di memoria di arr
+
+#Check per vedere il proprietario si usa il metodo .base
+
+print(arr.base) #nulla perchè è propriatario.
+print(arrCopy.base) #nulla perchè è proprietario (copiato)
+print(arrView.base) # ci da l'array perchè non è proprietario(view)
+
+
+
+#Shape e ReShape
+#In NumyPy shape ci dice la forma del nostro array.
+#Invece il Reshape ci fa cambiare forma al nostro array da 1d-2d da 1d-3d oppure a 0d.
+# Se l'array ha dimensioni sconosciute possiamo utilizzare -1 per definire che lo deve calcolare lui dato altri numeri.
+# flattening (spianare l'array) -> da array nD ad un array 0d.
+
+arr = np.array([1,2,3,4,5,6,7,8,9,10,11,12])
+
+print(arr.shape)
+print(arr3d.shape)
+print("========================RESHAPE===========================")
+print(arr.reshape(4,3)) #2D
+print("==================3d==============")
+print(arr.reshape(2,3,2)) #3d
+print("==================-1==============")
+print(arr.reshape(3,2,2))
+print("==============FLAT ARRAY==============")
+print(arr3d.flatten())
+
